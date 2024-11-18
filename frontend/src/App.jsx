@@ -25,7 +25,7 @@ function App() {
           element={
             <ProtectedRoute>
               <Home />
-            </ProtectedRoute>
+            </ProtectedRoute>  
           }
         />
         <Route path="/login" element={<Login />} />
