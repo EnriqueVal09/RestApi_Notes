@@ -20,7 +20,7 @@ function ProtectedRoute({ children }) {
 
             // check if the request was successful
             if (res.status === 200) {
-                localStarage.setItem(ACCESS_TOKEN, res.data.access); // set the new access token
+                localStorage.setItem(ACCESS_TOKEN, res.data.access); // set the new access token
                 setIsAuthorized(true);
             } else {
                 setIsAuthorized(false);
@@ -38,7 +38,7 @@ function ProtectedRoute({ children }) {
             return;
         }
         const decodedToken = jwtDecode(token);
-        const tokeExpiration = decodedToken.exp;
+        const tokenExpiration = decodedToken.exp;
         const now = Date.now() / 1000; // get the current time in seconds (divide by 1000 to convert to seconds)
         if (tokenExpiration < now) {
             await refreshToken();

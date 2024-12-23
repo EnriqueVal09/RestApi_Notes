@@ -28,9 +28,9 @@ class BookUpdate(generics.UpdateAPIView):
     def perform_update(self, serializer):
         serializer.save()
 
-class PublisherListCreate(generics.ListCreateAPIView):
+class PublisherListCreate(generics.CreateAPIView):
     serializer_class = PublisherSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (AllowAny,)
     queryset = Publisher.objects.all()
 
     def perform_create(self, serializer):

@@ -5,5 +5,5 @@ from .models import Note
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
-        fields = ('id', 'title', 'content', 'owner')
+        fields = ['id', 'title', 'content', 'created_at', 'owner']
         extra_kwargs = {'owner': {'read_only': True}}
