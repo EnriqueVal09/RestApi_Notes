@@ -3,11 +3,13 @@ import { ACCESS_TOKEN } from "../constants";
 
 // Verifica si la URL de la API está definida correctamente
 console.log("Base URL:", import.meta.env.VITE_APPS_URL);
-
 console.log("Token en localStorage:", localStorage.getItem(ACCESS_TOKEN));
 
+// conection to the backend server
+const apps_url = "/choreo-apis/djangorestnotes/backend/v1"
+
 const accounts = axios.create({
-  baseURL: import.meta.env.VITE_APPS_URL, // Asegúrate de que esté bien definida
+  baseURL: import.meta.env.VITE_APPS_URL ? import.meta.env.VITE_APPS_URL : apps_url, // Asegúrate de que esté bien definida
   headers: {
     "Content-Type": "application/json", // Se asegura de enviar JSON correctamente
   },

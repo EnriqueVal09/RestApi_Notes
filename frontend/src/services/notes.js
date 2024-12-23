@@ -1,8 +1,11 @@
 import axios from 'axios';
 import { ACCESS_TOKEN } from "../constants";
 
+// conection to the backend server
+const apps_url = "/choreo-apis/djangorestnotes/backend/v1"
+
 const notes_api = axios.create({
-    baseURL: import.meta.env.VITE_APPS_URL,
+  baseURL: import.meta.env.VITE_APPS_URL ? import.meta.env.VITE_APPS_URL : apps_url,
     headers: {
         "Content-Type": "application/json", // Se asegura de enviar JSON correctamente
       },
